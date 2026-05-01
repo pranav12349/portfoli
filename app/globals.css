@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Variables ─────────────────────────────── */
+:root {
+  --font-bebas: "Bebas Neue", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --font-jetbrains: "JetBrains Mono", monospace;
+}
+
+/* ─── Base ───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: #080809;
+  color: #ffffff;
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+/* ─── Scroll Reveal ──────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible,
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ─── Buttons ────────────────────────────────────── */
+.btn-ember {
+  background: linear-gradient(135deg, #e8572a 0%, #c73f18 100%);
+  box-shadow: 0 0 0 0 rgba(232, 87, 42, 0.4);
+  transition: box-shadow 0.3s ease, transform 0.2s ease, filter 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+.btn-ember:hover {
+  box-shadow: 0 0 24px 4px rgba(232, 87, 42, 0.35);
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+.btn-ember:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: border-color 0.3s ease, background 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-1px);
+}
+
+/* ─── Nav link underline ─────────────────────────── */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #e8572a;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ─── Decorative line ────────────────────────────── */
+.line-deco {
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: #e8572a;
+}
+
+/* ─── Video card ─────────────────────────────────── */
+.video-card {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
+}
+.video-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(232, 87, 42, 0.15);
+}
+
+.video-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.video-card:hover .video-overlay {
+  opacity: 1;
+}
+
+/* ─── Client badge card ──────────────────────────── */
+.client-badge {
+  background: #18181d;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease;
+}
+.client-badge:hover {
+  border-color: rgba(232, 87, 42, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Stat card ──────────────────────────────────── */
+.stat-card {
+  background: #18181d;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+.stat-card:hover {
+  border-color: rgba(232, 87, 42, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ─── Tab button ─────────────────────────────────── */
+.tab-btn {
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+.tab-btn:hover {
+  transform: translateY(-1px);
+}
+
+/* ─── Marquee ────────────────────────────────────── */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* ─── Hero keyframes ─────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #080809;
+}
+::-webkit-scrollbar-thumb {
+  background: #e8572a33;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e8572a88;
+}
+
+/* ─── Selection ──────────────────────────────────── */
+::selection {
+  background: rgba(232, 87, 42, 0.3);
+  color: #ffffff;
+}
