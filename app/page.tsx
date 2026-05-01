@@ -82,7 +82,7 @@ export default function Home() {
             className="flex flex-col gap-4 text-left"
           >
             {/* Hidden field to route submissions to the correct email */}
-             <input type="email" name="email" placeholder="Your Email" required />
+           
             <input type="hidden" name="_subject" value="New Portfolio Inquiry from Website" />
 
             <div className="grid sm:grid-cols-2 gap-4">
