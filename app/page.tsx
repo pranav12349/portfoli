@@ -77,7 +77,7 @@ export default function Home() {
 
           {/* Form */}
           <form
-            action="https://formspree.io/pranavteja0407@gmail.com"
+            action="https://formspree.io/f/xaqvnezg"
             method="POST"
             className="flex flex-col gap-4 text-left"
           >
